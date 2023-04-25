@@ -1,7 +1,7 @@
 {
-  "name": "company",
+  "name": "client",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/company",
+  "sourceRoot": "apps/client",
   "projectType": "application",
   "targets": {
     "build": {
@@ -9,12 +9,12 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "root": "apps/company",
-        "outputPath": "dist/apps/company"
+        "root": "apps/client",
+        "outputPath": "dist/apps/client"
       },
       "configurations": {
         "development": {
-          "outputPath": "apps/company"
+          "outputPath": "apps/client"
         },
         "production": {}
       }
@@ -23,17 +23,16 @@
       "executor": "@nrwl/next:server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "company:build",
-        "dev": true,
-        "port": 3000
+        "buildTarget": "client:build",
+        "dev": true
       },
       "configurations": {
         "development": {
-          "buildTarget": "company:build:development",
+          "buildTarget": "client:build:development",
           "dev": true
         },
         "production": {
-          "buildTarget": "company:build:production",
+          "buildTarget": "client:build:production",
           "dev": false
         }
       }
@@ -41,14 +40,14 @@
     "export": {
       "executor": "@nrwl/next:export",
       "options": {
-        "buildTarget": "company:build:production"
+        "buildTarget": "client:build:production"
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "apps/company/jest.config.ts",
+        "jestConfig": "apps/client/jest.config.ts",
         "passWithNoTests": true
       },
       "configurations": {
@@ -62,7 +61,7 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/company/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": ["apps/client/**/*.{ts,tsx,js,jsx}"]
       }
     }
   },
